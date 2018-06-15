@@ -1,6 +1,4 @@
-package com.extendswind.factory.factory;
-
-import sun.rmi.runtime.Log;
+package com.extendswind.factory.factoryPatten;
 
 /**
 
@@ -19,7 +17,6 @@ abstract class Logger {
    }
    // 可添加公共实现
 }
-
 abstract class SuperFactory{
 
     public abstract Logger produceLogger();
@@ -27,13 +24,11 @@ abstract class SuperFactory{
 
 
 class FileLogger extends Logger {
-
     @Override
     public void writeLog(){
         System.out.println("writeLog by the FileLogger");
     }
 }
-
 class FileLoggerFactory extends SuperFactory{
     @Override
     public Logger produceLogger(){
@@ -44,7 +39,6 @@ class FileLoggerFactory extends SuperFactory{
 
 
 class DataBaseLogger extends Logger {
-
     @Override
     public void writeLog(){
         System.out.println("writeLog by the DataBaseLogger");
@@ -66,24 +60,20 @@ class DataBaseLoggerFactory extends SuperFactory{
 
 
 public class FactoryPattern {
-     public static SuperFactory getFactory(String factoryName) {
+     private static SuperFactory getFactory(String factoryName) {
         SuperFactory factory = null;
 
         try {
             Class c= Class.forName(factoryName);
             factory = (SuperFactory)c.newInstance();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InstantiationException e) {
+        } catch (ClassNotFoundException | IllegalAccessException | InstantiationException e) {
             e.printStackTrace();
         }
-        return factory;
+         return factory;
     }
 
     public static void main(String []argvs){
-        String testFactory = "com.extendswind.factory.factory.FileLoggerFactory"; //一般从配置文件读取
+        String testFactory = "com.extendswind.factoryPatten.factoryPatten.FileLoggerFactory"; //一般从配置文件读取
         SuperFactory factory = getFactory(testFactory);
         Logger logger = factory.produceLogger();
         logger.writeLog();
