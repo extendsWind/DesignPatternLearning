@@ -1,8 +1,8 @@
-package com.extendswind.factory.factoryPatten;
+package com.extendswind.factory.factoryMethod;
 
 /**
 
- 正常的工厂模式 (FactoryPattern Method Pattern, 简称 FactoryPattern Pattern)
+ 正常的工厂模式 (Factory Method Pattern, 简称 Factory Pattern)
 
  简单工厂模式的主要麻烦在于对较多的产品难以管理，工厂模式针对此问题，将每个产品对应一个工厂。
 
@@ -58,7 +58,6 @@ class DataBaseLoggerFactory extends SuperFactory{
 // -----------------  默认上面的代码会打包，需要尽可能降低修改 ----
 
 
-
 public class FactoryPattern {
      private static SuperFactory getFactory(String factoryName) {
         SuperFactory factory = null;
@@ -69,11 +68,11 @@ public class FactoryPattern {
         } catch (ClassNotFoundException | IllegalAccessException | InstantiationException e) {
             e.printStackTrace();
         }
-         return factory;
+        return factory;
     }
 
     public static void main(String []argvs){
-        String testFactory = "com.extendswind.factoryPatten.factoryPatten.FileLoggerFactory"; //一般从配置文件读取
+        String testFactory = "com.extendswind.factory.factoryMethod.FileLoggerFactory"; //一般从配置文件读取
         SuperFactory factory = getFactory(testFactory);
         Logger logger = factory.produceLogger();
         logger.writeLog();

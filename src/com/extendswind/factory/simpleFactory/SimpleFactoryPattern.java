@@ -48,7 +48,7 @@ class DataBaseLogger extends Logger {
 }
 
 
-// simple factoryPatten
+// simple factoryMethod
 class SimpleFact {
 
     public static Logger produceLogger(String loggerType){
@@ -101,7 +101,7 @@ public class SimpleFactoryPattern {
         // 此处的输入一般采用配置文件的形式
         Logger currentLogger = SimpleFact.produceLogger("file");
         currentLogger.writeLog();
-        SimpleFact.produceLogger2("com.extendswind.factoryPatten.simpleFactory.FileLogger").writeLog();
+        SimpleFact.produceLogger2("com.extendswind.factory.simpleFactory.FileLogger").writeLog();
 
     }
 

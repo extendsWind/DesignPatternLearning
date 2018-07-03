@@ -1,6 +1,6 @@
 package com.extendswind.factory.abstractFactory;
 
-// simple factoryPatten 的问题:
+// simple factoryMethod 的问题:
 // 产品数量过多，又有明显的分类时，使用多个工厂生产自己分类的产品
 
 // 如 有多种主题，每种主题包含的Button和text的逻辑略有不同，使用每个工厂生产的
@@ -57,7 +57,6 @@ class Theme1Factory extends AbstractThemeFactory{
     }
 }
 class Theme2Factory extends AbstractThemeFactory{
-
     @Override
     public ButtonUI createButton() {
         return new ButtonUI_theme2();

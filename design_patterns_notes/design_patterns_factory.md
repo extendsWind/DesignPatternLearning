@@ -1,3 +1,16 @@
+---
+title: "设计模式 之 工厂模式"
+date: 2018-06-15T17:25:25+08:00
+
+toc: true
+
+categories:
+- "programming"
+
+tags:
+- "design patterns"
+---
+
 
 # 几种工厂模式(Factory Pattern)简介
 
